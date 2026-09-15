@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css?nocache={timestamp}"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="MM31Bootstrap.css?nocache={timestamp}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sass@1.49.7/dist/sass.min.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <title>MechMania 32</title>
+    <link rel="icon" href="/images/mm32logo.svg" />
+    <meta property="og:title" content="MechMania 32" />
+    <meta name="description" content="MechMania is a 24 hour hackathon where students team up to write a bot that plays a game. Every year, we build a game in secret, and challenge you to write the best bot! MechMania 32 is coming this September." />
+    <meta property="og:description"
+        content="MechMania is a 24 hour hackathon where students team up to write a bot that plays a game. Every year, we build a game in secret, and challenge you to write the best bot! MechMania 32 is coming this September." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://mechmania.github.io/images/mm32banner.png" />
+    <meta property="og:image:alt" content="MechMania Banner" />
+    <meta property="og:url" content="https://mechmania.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body>
+    <!--Navigation Bar-->
+    <div id="navBar"></div>
+    <script>
+      $(function () {
+        $("#navBar").load("/navBar.html");
+      });
+    </script>
+    <!--Navigation Bar-->
+
+    <!--Banner-->
+    <div
+      id="logo_banner"
+      class="container-fluid d-grid w-100"
+      style="background-color: #eef2f8; background-size: 100%"
+    >
+      <img src="/images/banner.svg" class="rounded mx-auto d-block" />
+    </div>
+
+    <!--Main content-->
+    <div id="main-content" class="container">
+      <!--Big ol' picutre thingy
+              <div class="container-fluid d-grid gap-1" 
+              style="background-image: url(images\brick_study_by_devin_busha.jpg); 
+              background-size: 100%;"> 
+              <div class="container-fluid d-grid gap-1" 
+              style="background-color: #3f3a3a; background-size: 100%;">
+          -->
+
+          
+      <!--blerbs and such-->
+      <div class="container-fluid d-grid gap-5" style="margin-top: 30px">
+        <!--Welcome title and about div-->
+
+        <div class="container shadow rounded p-4" style="border-style: groove">
+          <h1 class="title text-center">
+            <span data-text="Welcome">Welcome</span>
+            <span data-text="to">to</span>
+            <span data-text="MechMania">MechMania</span>
+            <span data-text="32!">32!</span>
+          </h1>
+          <p class="text-center h5" style="padding-bottom: 15px">
+            See you September 18th&ndash;19th!
+          </p>
+
+          <p class="tab text-left" style="padding-bottom: 5px">
+            MechMania is a 24-hour hackathon where students team up to write a bot that plays a
+            game. Every year, we build a game in secret, and challenge you to write the best bot! You
+            can fly solo, or participate in a group of up to four. If you do not want to participate
+            solo but also don't have a team yet, don't worry! We will have some time at the start of
+            the tournament for you to find a team! Learn more here at our
+            <a class="" href="/faq/index.html">FAQ</a>.
+          </p>
+          <p class="text-center text-muted">
+            We build a new game in secret every year &mdash; you won't find out what MechMania 32 is
+            until the competition itself.
+          </p>
+          <p class="text-center">
+            <a
+              class="btn btn-outline-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://forms.gle/vHUtbQQcHHemEwrZA"
+              >Register Here!</a
+            >
+          </p>
+        </div>
+
+        <!--how to compete div-->
+        <div class="container">
+          <h1 class="display-4 text-center">How to Compete</h1>
+          <p class="tab text-left">
+            MechMania open to all skill levels of coding. We provide the starter code in Java,
+            Python, and Rust, and you can focus on creating an awesome strategy to beat the other teams' bots in
+            our game. No experience in artificial intelligence or machine learning is required to
+            participate. In many years past, several freshmen have won the top three positions!
+          </p>
+        </div>
+
+        <hr class="hr" style="opacity: 20%" />
+
+        <div class="containter">
+          <h1 class="display-4 text-center">Competition Schedule</h1>
+          <p class="text-center mt-0">
+            We will be hosting MechMania in <b>Room 1404 of Siebel Center for Computer Science</b> on
+            UIUC campus, come join us!
+          </p>
+          <div class="container">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 30%">Date</th>
+                  <th scope="col" style="width: 20%">Time</th>
+                  <th scope="col">Event</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="table-active">Friday, September 18</th>
+                  <td>5:15 PM</td>
+                  <td>Room Opens</td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>5:20 PM</td>
+                  <td>Introduction</td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>5:30 PM</td>
+                  <td>Bot Submissions Open</td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>9:00 PM</td>
+                  <td>Room Closed</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="table-active">Saturday, September 19</th>
+                  <td>9:00 AM</td>
+                  <td>Room Opens</td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>5:30 PM</td>
+                  <td>Bot Submissions Close</td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>5:45 PM</td>
+                  <td>Final Tournament and Awards Ceremony</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr class="hr" style="opacity: 20%" />
+
+        <!--Prizes-->
+        <div class="container">
+          <h1 class="display-4 text-center">
+            Oh, and did we mention there are prizes?
+          </h1>
+          <div class="container w-50">
+            <table class="table table-hover table-responsive table-lg">
+              <thead>
+                <tr>
+                  <th scope="col">Place</th>
+                  <th scope="col">Prize</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1st Place</td>
+                  <td>$800</td>
+                </tr>
+                <tr>
+                  <td>2nd Place</td>
+                  <td>$400</td>
+                </tr>
+                <tr>
+                  <td>3rd Place</td>
+                  <td>$200</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr class="hr" style="opacity: 20%" />
+
+
+        <!--Past MechMania-->
+        <div class="container mx-auto">
+          <h1 class="display-4 text-center">
+            MechMania 31 Recap
+          </h1>
+          <p class="text-center">In MechMania 31, the theme was Soccer! Participants made bots to control a team of soccer players in a fast-paced 1v1 match. The goal was to out maneuver your opponent and dominate the field!</p>
+          <div class="pb-5">
+            <img src="/images/mm31.gif" class="d-block mx-auto" style="max-width: 100%; border-radius: 8px;" />
+            <p class="text-center text-muted">
+              DIBS vs SegFault, MechMania 31 (2025)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+      $(function () {
+        $("#footer").load("/footer.html");
+      });
+    </script>
+    <!-- Footer -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

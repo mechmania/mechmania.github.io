@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1600"
+   height="500"
+   viewBox="0 0 1600 500"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="banner.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.61625"
+     inkscape:cx="724.54361"
+     inkscape:cy="211.76471"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
+  <defs
+     id="defs4">
+    <radialGradient
+       id="glowBlue"
+       gradientUnits="userSpaceOnUse"
+       cx="40"
+       cy="460"
+       r="620">
+      <stop
+         offset="0%"
+         stop-color="#0d87ef"
+         stop-opacity="0.5"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#0d87ef"
+         stop-opacity="0"
+         id="stop2" />
+    </radialGradient>
+    <radialGradient
+       id="glowOrange"
+       gradientUnits="userSpaceOnUse"
+       cx="1560"
+       cy="40"
+       r="620">
+      <stop
+         offset="0%"
+         stop-color="#f7a008"
+         stop-opacity="0.5"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#f7a008"
+         stop-opacity="0"
+         id="stop4" />
+    </radialGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath19">
+      <path
+         d="M 39.59798,-11.313708 1131.3708,-1103.0866 l 313.9555,313.95543 q 11.3137,11.31371 0,22.62742 L 353.55339,325.26912 39.59798,11.313708 Q 28.284271,0 39.59798,-11.313708 Z"
+         id="path20" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath20">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path21" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath21">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path22" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath22">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path23" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath23">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path24" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath24">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path25" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath25">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path26" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath26">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path27" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath27">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path28" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath28">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path29" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath29">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path30" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath30">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path31" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath31">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path32" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath32">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path33" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath33">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path34" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath34">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path35" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath35">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path36" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath36">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path37" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath37">
+      <path
+         d="m 36,20 h 1544 v 444 q 0,16 -16,16 H 20 V 36 Q 20,20 36,20 Z"
+         id="path38" />
+    </clipPath>
+  </defs>
+  <!-- crisp outline, same as the logo -->
+  <g
+     id="g39">
+    <rect
+       x="20"
+       y="20"
+       width="1560"
+       height="460"
+       fill="#111318"
+       id="rect4"
+       clip-path="url(#clipPath25)" />
+    <rect
+       x="20"
+       y="20"
+       width="1560"
+       height="460"
+       fill="url(#glowBlue)"
+       id="rect5"
+       style="fill:url(#glowBlue)"
+       clip-path="url(#clipPath24)" />
+    <rect
+       x="20"
+       y="20"
+       width="1560"
+       height="460"
+       fill="url(#glowOrange)"
+       id="rect6"
+       style="fill:url(#glowOrange)"
+       clip-path="url(#clipPath23)" />
+    <polygon
+       points="90,480 20,480 20,410 "
+       fill="#0d87ef"
+       id="polygon6"
+       clip-path="url(#clipPath22)" />
+    <polygon
+       points="1580,90 1580,20 1510,20 "
+       fill="#f7a008"
+       id="polygon7"
+       clip-path="url(#clipPath21)" />
+    <path
+       d="M 96,410 V 114 l 14,-14 h 148 l 14,14 v 272 l 14,14 h 148 l 14,-14 V 114 l 14,-14 h 148 l 14,14 v 272 l 14,14 h 148 l 14,-14 V 114 l 14,-14 h 148 l 14,14 v 272 l 14,14 h 148 l 14,-14 V 114 l 14,-14 h 148 l 14,14 v 272 l 14,14 h 148 l 14,-14 V 84.791075"
+       fill="none"
+       stroke="#5b6472"
+       stroke-width="3.4"
+       stroke-linejoin="round"
+       stroke-linecap="round"
+       id="path7"
+       clip-path="url(#clipPath20)"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccc" />
+    <rect
+       x="778.80273"
+       y="-228.11731"
+       width="15"
+       height="15"
+       fill="#ffffff"
+       stroke="#1c1f26"
+       stroke-width="2"
+       transform="rotate(45)"
+       id="rect7"
+       clip-path="url(#clipPath19)" />
+    <path
+       d="M 119,135 H 249 V 365 H 119 Z m 26,26 h 78 v 178 h -78 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path8"
+       style="fill-opacity:0.9"
+       clip-path="url(#clipPath37)" />
+    <path
+       id="rect8"
+       clip-path="url(#clipPath36)"
+       style="fill-opacity:1;fill:#e8e8e8"
+       d="M 295 161 L 295 237 L 295 263 L 295 339 L 295 365 L 425 365 L 425 339 L 425 263 L 425 237 L 321 237 L 321 161 L 295 161 z M 321 263 L 399 263 L 399 339 L 321 339 L 321 263 z " />
+    <rect
+       x="519.75"
+       y="135"
+       width="32.5"
+       height="230"
+       fill="#ffffff"
+       id="rect13"
+       style="fill-opacity:0.9"
+       clip-path="url(#clipPath31)" />
+    <path
+       d="M 647,135 H 777 V 365 H 647 Z m 26,26 h 78 v 178 h -78 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path13"
+       style="fill-opacity:0.9"
+       clip-path="url(#clipPath30)" />
+    <path
+       d="M 823,135 H 953 V 365 H 823 Z m 26,26 h 78 v 178 h -78 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path14"
+       style="fill-opacity:0.9"
+       clip-path="url(#clipPath29)" />
+    <path
+       d="m 999,135 h 130 V 365 H 999 Z m 26,26 h 78 v 178 h -78 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path15"
+       style="fill-opacity:0.9"
+       clip-path="url(#clipPath28)" />
+    <path
+       d="m 1175,135 h 130 v 230 h -130 z m 26,26 h 78 v 178 h -78 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path16"
+       style="fill-opacity:0.9"
+       clip-path="url(#clipPath27)" />
+    <path
+       d="m 1351,135 h 130 v 230 h -130 z m 26,26 h 78 v 178 h -78 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path17"
+       style="fill-opacity:0.9"
+       clip-path="url(#clipPath26)" />
+    <path
+       d="     M 36,20     H 1580     V 464     Q 1580,480 1564,480     H 20     V 36     Q 20,20 36,20     Z"
+       fill="none"
+       stroke="#1c1f26"
+       stroke-width="1"
+       id="path18" />
+    <circle
+       style="fill:#5b6472;fill-opacity:1;stroke:none;stroke-width:8.37165;stroke-dasharray:none"
+       id="path39"
+       cx="95.853676"
+       cy="410"
+       r="6.7840376" />
+    <circle
+       style="fill:#5b6472;fill-opacity:1;stroke:none;stroke-width:8.37165;stroke-dasharray:none"
+       id="circle39"
+       cx="1504.2281"
+       cy="83.215965"
+       r="6.7840376" />
+  </g>
+</svg>
