@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/visualizer", "destination": "/visualizer/dist/index.html" },
+    { "source": "/visualizer/", "destination": "/visualizer/dist/index.html" }
+  ]
+}

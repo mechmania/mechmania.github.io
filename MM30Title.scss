@@ -1,0 +1,70 @@
+:root {
+	--base: #303952;
+	--shadow: #647784;
+	--back: #4b5b7a;
+}
+
+
+.title {
+	font: bold 4.5rem/1.1 sans-serif;
+	text-align: center;
+	padding-bottom: 20px;
+
+	span {
+		color: var(--back);
+		display: inline-block;
+		position: relative;
+
+		/* Setting the "shadow" effect of the words */
+		@for $word from 1 through 4 {
+			&:nth-child(#{$word}) {
+				&::before,
+				&::after {
+					animation-delay: #{$word / 10}s;
+				}
+			}
+		}
+
+		&::before {
+			animation: max-height .4s cubic-bezier(0.61, 1, 0.88, 1) 1 normal both;
+			color: var(--shadow);
+		}
+		
+		&::after {
+			animation: max-width .7s cubic-bezier(0.61, 1, 0.88, 1) 1 normal both;
+			color: var(--base);
+		}
+		
+		&::before,
+		&::after {
+			/* Using data attribute to avoid duplicated content in HTML. https://caniuse.com/mdn-css_types_attr */
+			content: attr(data-text);
+			left: 0;
+			/* Hide overflow */
+			overflow: hidden;
+			position: absolute;
+			/* Code only gud for looks, not gud for text-to-speech */
+			speak: none;
+		}
+	}
+}
+
+@keyframes max-width {
+	from {
+		max-width: 0;
+	}
+	to {
+		max-width: 100%;
+	}
+}
+
+@keyframes max-height {
+	from {
+		max-height: 0;
+	}
+	to {
+		max-height: 100%;
+	}
+}
+
+

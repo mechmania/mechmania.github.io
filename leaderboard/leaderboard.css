@@ -1,0 +1,27 @@
+/* Leaderboard Page Specific Styles */
+#leaderboardContainer {
+  margin-top: 2rem;
+}
+
+/* Highlight top 3 */
+#leaderboard tbody tr:nth-child(1) {
+  background: linear-gradient(90deg, gold, #fff5cc);
+  font-weight: bold;
+}
+#leaderboard tbody tr:nth-child(2) {
+  background: linear-gradient(90deg, silver, #f2f2f2);
+  font-weight: 600;
+}
+#leaderboard tbody tr:nth-child(3) {
+  background: linear-gradient(90deg, #cd7f32, #fbe4d6);
+  font-weight: 600;
+}
+
+/* Align text */
+#leaderboard th, #leaderboard td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+

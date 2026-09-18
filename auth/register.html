@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="../MM31Bootstrap.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Register - MechMania</title>
+    <link rel="icon" href="../images/mm32logo.svg" />
+</head>
+<body>
+    <div id="navBar"></div>
+    <script>
+        $("#navBar").load("../navBar.html");
+    </script>
+
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="container shadow rounded p-4">
+                    <h2 class="text-center mb-4">Team Registration</h2>
+                    <strong>Important:</strong> Please make sure you have already submitted your team's info at this <a href="https://forms.gle/vHUtbQQcHHemEwrZA" target="_blank" class="alert-link">Google form</a> before you register your team, otherwise we will not be able to distribute prizes to all of your team members!
+                    <form id="registerForm" class="mt-4">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Team Name</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required minlength="6">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-lg register-page-btn w-100">Register</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Already have a team account? <a href="login.html">Login here</a></p>
+                    </div>
+                    <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;"></div>
+                    <div id="successMessage" class="alert alert-success mt-3" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4 pb-4"></div>
+
+    <div id="footer"></div>
+    <script>
+        $("#footer").load("../footer.html");
+    </script>
+
+    <script src="auth.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"
+    ></script>
+</body>
+</html>

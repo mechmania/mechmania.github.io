@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --primary-bg: #1a1a1a;
+  --accent-purple: #1b2a4a;
+  --accent-blue: #1b2a4a;
+  --accent-orange: #f2994a;
+  --text-light: #ffffff;
+  --text-muted: #cccccc;
+}
+
+/* Base reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Layout: make footer push to bottom without covering content */
+html, body { height: 100%; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-muted);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.mechmania-navbar {
+  background: #111;
+  border-bottom: 2px solid var(--accent-purple);
+}
+.mechmania-navbar .nav-link {
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: .5rem 1rem;
+  position: relative;
+  transition: color .3s;
+}
+.mechmania-navbar .nav-link:hover { color: var(--text-light); }
+.mechmania-navbar .twitch:hover { background: var(--accent-purple); }
+.mechmania-navbar .discord:hover { background: #7289da; }
+.mechmania-navbar .faq:hover { background: #a3371b; }
+.mechmania-navbar .nav-link:hover { border-radius: 5px; color: #fff !important; }
+
+.logo { height: 40px; }
+
+/* Even, balanced hero header */
+.notready-hero {
+  background: var(--accent-blue);
+  padding: 64px 0;              /* equal space top/bottom */
+  text-shadow: 0 0 10px #000;
+}
+
+/* Typography */
+.display-3, .display-6 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text-light);
+}
+.lead { font-size: 1.25rem; }
+a { text-decoration: none; color: var(--accent-blue); font-weight: 500; }
+a:hover { color: var(--text-light); }
+
+/* Footer: REMOVE fixed positioning; let it be pushed down by flex */
+#footer { margin-top: auto; }
+
+/* If your injected footer contains <footer class="footer">, keep only styling */
+footer.footer {
+  background: #111;
+  border-top: 2px solid var(--accent-orange);
+  /* no position: fixed here */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .display-3 { font-size: 2rem; }
+  .notready-hero { padding: 48px 0; }
+}

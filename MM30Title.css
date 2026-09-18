@@ -1,0 +1,80 @@
+:root {
+  --base: #303952;
+  --shadow: #647784;
+  --back: #4b5b7a;
+}
+
+.title {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 1000px) {
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+.title span {
+  color: var(--back);
+  display: inline-block;
+  position: relative;
+  /* Setting the "shadow" effect of the words */
+}
+.title span:nth-child(1)::before, .title span:nth-child(1)::after {
+  animation-delay: 0.1s;
+}
+.title span:nth-child(2)::before, .title span:nth-child(2)::after {
+  animation-delay: 0.2s;
+}
+.title span:nth-child(3)::before, .title span:nth-child(3)::after {
+  animation-delay: 0.3s;
+}
+.title span:nth-child(4)::before, .title span:nth-child(4)::after {
+  animation-delay: 0.4s;
+}
+.title span::before {
+  animation: max-height 0.4s cubic-bezier(0.61, 1, 0.88, 1) 1 normal both;
+  color: var(--shadow);
+}
+.title span::after {
+  animation: max-width 0.7s cubic-bezier(0.61, 1, 0.88, 1) 1 normal both;
+  color: var(--base);
+}
+.title span::before, .title span::after {
+  /* Using data attribute to avoid duplicated content in HTML. https://caniuse.com/mdn-css_types_attr */
+  content: attr(data-text);
+  left: 0;
+  /* Hide overflow */
+  overflow: hidden;
+  position: absolute;
+  /* Code only gud for looks, not gud for text-to-speech */
+  speak: none;
+}
+
+@keyframes max-width {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 100%;
+  }
+}
+@keyframes max-height {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 100%;
+  }
+}/*# sourceMappingURL=MM29Title.css.map */

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM32 Visualizer</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: sans-serif;
+            overflow: hidden;
+            background-color: #0b0b0c;
+            color: #ffffff;
+        }
+
+        /*
+          The field is square, so a wide viewport leaves slack on either side of
+          the canvas. The side columns claim that slack as real DOM instead of
+          floating panels over the canvas: Pixi's `resizeTo` follows the narrower
+          #gameContainer, so the field just re-fits itself.
+        */
+        #stageRow {
+            flex: 1 1 auto;
+            display: flex;
+            min-height: 0;
+        }
+
+        #sideLeft, #sideRight {
+            flex: 0 0 260px;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            gap: 10px;
+            box-sizing: border-box;
+            min-height: 0;
+        }
+
+        /*
+          Team B on top, team A below -- matching their spawn corners (A is
+          bottom-left on the field). The two cards split the column between
+          them, so the left margin is filled top to bottom.
+        */
+        .team-card {
+            flex: 1 1 0;
+            min-height: 0;
+            overflow-y: auto;
+        }
+
+        /* The inspector owns the whole right margin, but only in debug mode. */
+        #debugPanel { flex: 1 1 auto; min-height: 0; overflow-y: auto; display: none; }
+        body.debug-mode #debugPanel { display: block; }
+
+        /* Nothing to say yet (no log loaded) -- don't draw an empty box. */
+        .panel:empty { display: none; }
+        .panel-body:empty { display: none; }
+
+        .panel {
+            background-color: #141518;
+            border: 1px solid #2a2c31;
+            border-radius: 5px;
+            padding: 8px 10px;
+            font-size: 12px;
+        }
+
+        .panel-title {
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #444;
+        }
+
+        .panel-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            line-height: 18px;
+        }
+
+        .panel-row .label { color: #aaa; white-space: nowrap; }
+
+        .panel-row .value {
+            font-family: monospace;
+            color: #fff;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .panel-note {
+            color: #888;
+            font-style: italic;
+            line-height: 18px;
+        }
+
+        .level-bar {
+            display: flex;
+            gap: 2px;
+        }
+
+        .level-bar i {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+            background: #3a3a3a;
+        }
+
+        .level-bar i.on { background: #6ab0ff; }
+
+        #gameContainer {
+            flex: 1 1 auto;
+            min-width: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Solid black: the field's own background, not just page chrome. */
+            background: #000000;
+            overflow: hidden;
+        }
+
+        /* PixiJS creates the canvas and sizes it to #gameContainer. */
+        #gameContainer canvas {
+            display: block;
+            border-radius: 5px;
+        }
+
+        #controls {
+            flex: 0 0 auto;
+            padding: 0.5rem;
+            background: #2a2a2a;
+            border-top: 1px solid #444;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #keyboardControls {
+            flex: 0 0 auto;
+            padding: 10px;
+            font-size: 12px;
+            color: #aaa;
+            text-align: center;
+            background: #333;
+            border-top: 1px solid #444;
+        }
+
+        #fileUpload {
+            flex: 0 0 auto;
+            padding: 20px;
+            background-color: #23272f;
+            border-top: 2px solid #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .team-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /* Must stay in sync with TEAM_COLORS / TEAM_CSS in src/game/mm32.js. */
+        .team-blue { color: #2e8bff; }
+        .team-orange { color: #ff8a3d; }
+
+        /* The fleet's token total -- the closest thing MM32 has to a score. */
+        .team-score {
+            font-family: monospace;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 2px 0 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #444;
+        }
+
+        button, input[type="file"] {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #3a3a3a;
+            color: #ffffff;
+            border: 1px solid #555;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover, input[type="file"]:hover {
+            background-color: #4a4a4a;
+        }
+
+        #frameSlider {
+            width: 400px;
+            height: 6px;
+            background-color: #555;
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        #frameSlider::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #frameSlider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        #speedControl {
+            width: 60px;
+            background-color: #555;
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        #speedControl::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #speedControl::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .control-label {
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        .debug-toggle {
+            background-color: #444 !important;
+        }
+
+        .debug-toggle.active {
+            background-color: #666 !important;
+        }
+
+        .fixed-width {
+            display: inline-block;
+            width: 90px;
+            height: 28px;
+            line-height: 28px; 
+            text-align: center;
+            vertical-align: middle;
+            color: #ffffff;
+        }
+
+        #playPauseBtn {
+            width: 40px;
+            height: 40px;
+            font-size: 22px;
+            line-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            font-family: 'Consolas', 'Courier New', monospace;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #fileUploadLabel {
+            font-weight: bold;
+            font-size: 16px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        #fileInput {
+            background-color: #3a3a3a;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        input[type="number"], input[type="text"] {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #3a3a3a;
+            color: #ffffff;
+            border: 1px solid #555;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Live toolbar */
+        #liveToolbar {
+            flex: 0 0 auto;
+            padding: 8px 12px;
+            background: #141518;
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #444;
+            display: none; /* shown only in live mode */
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pill {
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            background: #333;
+            color: #ddd;
+            border: 1px solid #555;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .dot.green { background: #2ecc71; }
+        .dot.red { background: #e74c3c; }
+        .dot.yellow { background: #f1c40f; }
+
+        #liveToggleBtn { background: #195087; }
+        #skipBtn { background: #7a3a3a; }
+        #queueCount { font-weight: bold; }
+        #tourneyInput { width: 110px; }
+
+        /* Live mode: replace the file picker with a status label */
+        body.live-mode #liveToolbar { display: flex; }
+        body.live-mode #fileUpload,
+        body.live-mode #keyboardControls { display: none; }
+    </style>
+  <script type="module" crossorigin src="/visualizer/assets/index-BsTE4nnL.js"></script>
+</head>
+<body>
+    <script>
+        // Live mode is opted into with ?live (or ?live=1). Set before first paint.
+        window.LIVE_MODE = new URLSearchParams(location.search).has('live');
+        if (window.LIVE_MODE) document.body.classList.add('live-mode');
+        document.title = window.LIVE_MODE ? 'MM32 Visualizer Live' : 'MM32 Visualizer';
+    </script>
+
+    <!--
+      Main game canvas (created by PixiJS at runtime), flanked by the side
+      columns: the two teams on the left, the inspector on the right. The name
+      and token total of each card are written by src/ui/hud.js; everything
+      under them comes from src/ui/panels.js.
+    -->
+    <div id="stageRow">
+        <aside id="sideLeft">
+            <section class="panel team-card">
+                <div id="rightTeamName" class="team-name team-orange">Team B</div>
+                <div id="rightTeamScore" class="team-score">0</div>
+                <div id="fabB" class="panel-body"></div>
+            </section>
+            <section class="panel team-card">
+                <div id="leftTeamName" class="team-name team-blue">Team A</div>
+                <div id="leftTeamScore" class="team-score">0</div>
+                <div id="fabA" class="panel-body"></div>
+            </section>
+        </aside>
+
+        <div id="gameContainer"></div>
+
+        <aside id="sideRight">
+            <div id="debugPanel" class="panel"></div>
+        </aside>
+    </div>
+
+    <!-- Controls below canvas -->
+    <div id="controls" style="justify-content: center;">
+        <button id="prevFrameBtn">◄◄</button>
+        <button id="playPauseBtn">►</button>
+        <button id="nextFrameBtn">►►</button>
+
+        <div class="control-group">
+            <span class="control-label">Frame:</span>
+            <input type="range" id="frameSlider" min="0" max="1" value="0">
+            <span id="frameDisplay" class="fixed-width">0/0</span>
+        </div>
+
+        <div class="control-group" style="min-width: 160px;">
+            <span class="control-label" style="margin-right:6px;margin-left:8px;">Speed:</span>
+            <input type="range" id="speedControl" min="0.25" max="4" step="0.25" value="1" style="width:90px;">
+            <span id="speedValue" class="fixed-width" style="margin-right:6px;margin-left:4px;">1x</span>
+        </div>
+
+        <button id="debugToggle" class="debug-toggle">Debug</button>
+    </div>
+
+    <!-- Live toolbar (live mode only) -->
+    <div id="liveToolbar" style="justify-content: center;">
+        <span id="liveStatus" class="pill"><span id="liveStatusDot" class="dot red"></span><span id="liveStatusText">Stopped</span></span>
+        <span class="pill">Queue: <span id="queueCount">0</span></span>
+        <span class="pill">Poll: <span id="pollIntervalLabel">—</span></span>
+        <label class="control-label" for="tourneyInput">Tourney:</label>
+        <input type="text" id="tourneyInput" placeholder="optional" title="Filter by tournament id" />
+        <button id="liveToggleBtn">Start Live</button>
+        <button id="skipBtn" title="Skip current match and play next">Skip</button>
+        <button id="refreshBtn" title="Poll now">Refresh</button>
+    </div>
+
+    <!-- Keyboard instructions -->
+    <div id="keyboardControls">
+        Keyboard Controls: Space (Play/Pause), Left Arrow (Previous Frame), Right Arrow (Next Frame), D (Debug Mode Toggle), 0 (Reset Camera)
+        <br>
+        Camera: Scroll to Zoom, Drag to Pan. In debug mode, a locked bot is kept on screen.
+    </div>
+
+    <!-- File upload at bottom -->
+    <div id="fileUpload">
+        <label for="fileInput" id="fileUploadLabel" style="margin-right: 12px; font-size: 16px; color: #fff;">
+            Current Game Log:
+        </label>
+        <input type="file" id="fileInput" accept=".mmgl">
+        
+        <!-- Manual match ID input for testing -->
+        <div style="margin-left: 20px; display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 14px; color: #ccc;">Or load friendly tourney match by ID:</label>
+            <input type="number" id="matchIdInput" placeholder="Match ID" style="width: 100px; padding: 8px; background-color: #3a3a3a; color: #fff; border: 1px solid #555; border-radius: 3px;">
+            <button id="matchIdLoadBtn" style="padding: 8px 12px; background-color: #195087; color: white; border: none; border-radius: 3px; cursor: pointer;">Load</button>
+            <a href="?live" style="margin-left: 20px; color: #6ab0ff; font-size: 14px;">Watch live &rarr;</a>
+        </div>
+    </div>
+
+</body>
+</html>

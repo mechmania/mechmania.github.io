@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Control Panel</title>
+</head>
+<body>
+  <h1>Admin Control Panel</h1>
+  <button id="logout">Logout</button>
+  <hr />
+
+  <section>
+    <h2>Current Config</h2>
+    <button id="btnRefresh">Refresh Config</button>
+    <pre id="currentConfig">(no data)</pre>
+  </section>
+
+  <hr />
+  <section>
+    <h2>Update Config</h2>
+    <label>
+      Auto run:
+      <select id="autoRun">
+        <option value="false">Off</option>
+        <option value="true">On</option>
+      </select>
+    </label>
+    <div>
+      <label>
+        Interval:
+        <input type="text" id="interval" placeholder="e.g. 1h, 30m" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Tournament Type:
+        <select id="updateTourneyType">
+          <option value="">-- None --</option>
+          <option value="RoundRobin">Round Robin</option>
+          <option value="Rounds">Rounds</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Rounds (if applicable):
+        <input type="number" id="updateRounds" min="1" />
+      </label>
+    </div>
+
+    <button id="btnUpdate">Update Config</button>
+  </section>
+
+  <hr />
+  <section>
+    <h2>Run Tournament</h2>
+    <div>
+      <label>
+        Cutoff (optional):
+        <input type="text" id="beforeTime" placeholder="YYYY-MM-DDTHH:mm:ss" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Tournament Type:
+        <select id="tourneyType">
+          <option value="RoundRobin">Round Robin</option>
+          <option value="Rounds">Rounds</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Rounds (if applicable):
+        <input type="number" id="rounds" min="1" />
+      </label>
+    </div>
+
+    <button id="btnRun">Run</button>
+    <pre id="runResult"></pre>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
